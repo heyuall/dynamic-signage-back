@@ -1,12 +1,14 @@
 package com.pfe.dynamicsignage.Entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LayoutGrid {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +18,9 @@ public class LayoutGrid {
     private String main_dimension;
     private Boolean footer;
     private Boolean aside;
+    @ManyToOne
+    @JsonManagedReference
+    private Afficheur afficheur;
 
 
 }
