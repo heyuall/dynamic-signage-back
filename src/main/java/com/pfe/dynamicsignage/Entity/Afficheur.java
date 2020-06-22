@@ -1,6 +1,8 @@
 package com.pfe.dynamicsignage.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pfe.dynamicsignage.Model.LayoutGridModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +20,11 @@ public class Afficheur {
     private long id;
 
     private String name;
+    private String afficheurReference;
 
-    @OneToMany
-    @JsonBackReference
-    private List<LayoutGrid> layoutGrid;
+    @ManyToOne
+    @JsonManagedReference
+
+    private LayoutGrid layoutGrid;
 
 }
