@@ -1,6 +1,6 @@
 package com.pfe.dynamicsignage.dao;
 
-import com.pfe.dynamicsignage.Entity.LayoutGrid;
+import com.pfe.dynamicsignage.entity.LayoutGrid;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

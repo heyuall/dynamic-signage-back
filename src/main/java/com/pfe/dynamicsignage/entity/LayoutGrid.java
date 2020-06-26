@@ -1,7 +1,6 @@
-package com.pfe.dynamicsignage.Entity;
+package com.pfe.dynamicsignage.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;

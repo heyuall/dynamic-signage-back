@@ -1,14 +1,12 @@
-package com.pfe.dynamicsignage.Model;
+package com.pfe.dynamicsignage.model;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.pfe.dynamicsignage.Entity.Afficheur;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter @Setter
+@Data
 public class LayoutGridModel {
     private long id;
     @NotBlank

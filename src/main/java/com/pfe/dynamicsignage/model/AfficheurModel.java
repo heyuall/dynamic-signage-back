@@ -1,13 +1,10 @@
-package com.pfe.dynamicsignage.Model;
+package com.pfe.dynamicsignage.model;
 
-import com.pfe.dynamicsignage.Entity.LayoutGrid;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Getter
 @Setter

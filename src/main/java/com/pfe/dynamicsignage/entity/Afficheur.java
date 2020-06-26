@@ -1,14 +1,13 @@
-package com.pfe.dynamicsignage.Entity;
+package com.pfe.dynamicsignage.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.pfe.dynamicsignage.Model.LayoutGridModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -22,9 +21,9 @@ public class Afficheur {
     private String name;
     private String afficheurReference;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
     @JsonManagedReference
-
     private LayoutGrid layoutGrid;
 
 }

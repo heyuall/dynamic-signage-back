@@ -1,8 +1,8 @@
-package com.pfe.dynamicsignage.Service.Implementation;
+package com.pfe.dynamicsignage.service.implementation;
 
-import com.pfe.dynamicsignage.Entity.LayoutGrid;
-import com.pfe.dynamicsignage.Model.LayoutGridModel;
-import com.pfe.dynamicsignage.Service.LayoutGridService;
+import com.pfe.dynamicsignage.entity.LayoutGrid;
+import com.pfe.dynamicsignage.model.LayoutGridModel;
+import com.pfe.dynamicsignage.service.LayoutGridService;
 import com.pfe.dynamicsignage.dao.LayoutGridDao;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +25,10 @@ public class LayoutGridServiceImpl implements LayoutGridService {
       LayoutGrid layoutGrid = modelMapper.map(layoutGridModel,LayoutGrid.class);
 
         return layoutGridDao.save(layoutGrid);
+    }
+
+    @Override
+    public void deleteLayoutGridById(Long id) {
+        this.layoutGridDao.deleteById(id);
     }
 }

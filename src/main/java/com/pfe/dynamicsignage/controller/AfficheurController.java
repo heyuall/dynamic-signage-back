@@ -1,9 +1,9 @@
-package com.pfe.dynamicsignage.Controller;
+package com.pfe.dynamicsignage.controller;
 
-import com.pfe.dynamicsignage.Entity.Afficheur;
-import com.pfe.dynamicsignage.Model.AfficheurModel;
-import com.pfe.dynamicsignage.Model.LayoutGridModel;
-import com.pfe.dynamicsignage.Service.AfficheurService;
+import com.pfe.dynamicsignage.entity.Afficheur;
+import com.pfe.dynamicsignage.model.AfficheurModel;
+import com.pfe.dynamicsignage.model.LayoutGridModel;
+import com.pfe.dynamicsignage.service.AfficheurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +31,10 @@ public class AfficheurController {
     public Afficheur affectLayoutGrid(@RequestBody final LayoutGridModel layoutGridModel,
                                       @PathVariable Long id) {
         return afficheurService.affectLayoutGrid( layoutGridModel, id);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public void deleteAfficheurById(@PathVariable final Long id){
+        this.afficheurService.deleteAfficheurById(id);
     }
 }
