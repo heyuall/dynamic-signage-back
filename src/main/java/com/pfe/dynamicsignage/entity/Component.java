@@ -1,6 +1,8 @@
 package com.pfe.dynamicsignage.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,7 @@ public class Component {
     private String view;// histo - pie
 
     @ManyToMany(mappedBy = "componentSet")
-    private Set<LayoutGrid> layoutGridSet ;
+    private Set<LayoutGrid> layoutGridSet=new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<com.pfe.dynamicsignage.entity.Data> dataSet;

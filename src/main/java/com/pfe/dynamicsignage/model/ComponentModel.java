@@ -14,12 +14,11 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ComponentModel {
-    @NotBlank
-    @NotNull
+
     private long id;
 
     private String type; // chart - message
     private String view;// histo - pie
-    private Set<LayoutGrid> layoutGridSet ;
+    private Set<LayoutGridModel> layoutGridSet ;
 
 }

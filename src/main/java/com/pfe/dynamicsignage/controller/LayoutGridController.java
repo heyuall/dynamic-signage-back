@@ -31,5 +31,12 @@ public class LayoutGridController {
         this.layoutGridService.deleteLayoutGridById(id);
     }
 
+
+    @PostMapping("{layoutGridId}/affectComponent/{componentId}")
+    public LayoutGrid affectComponent(@PathVariable Long componentId,
+                                     @PathVariable Long layoutGridId) {
+        return layoutGridService.affectComponent( componentId, layoutGridId);
+    }
+
 }
 

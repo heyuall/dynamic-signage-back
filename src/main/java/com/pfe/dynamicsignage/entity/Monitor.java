@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Afficheur {
+public class Monitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

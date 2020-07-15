@@ -1,6 +1,7 @@
 package com.pfe.dynamicsignage.service;
 
 import com.pfe.dynamicsignage.entity.LayoutGrid;
+import com.pfe.dynamicsignage.model.ComponentModel;
 import com.pfe.dynamicsignage.model.LayoutGridModel;
 
 import java.util.List;
@@ -10,5 +11,7 @@ public interface LayoutGridService {
 
     public List<LayoutGrid> getAll();
 
-    public  void deleteLayoutGridById(Long id);
+    public void deleteLayoutGridById(Long id);
+
+    public LayoutGrid affectComponent(Long componentId, Long layoutGridId);
 }

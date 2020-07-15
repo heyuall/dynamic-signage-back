@@ -8,9 +8,8 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-public class AfficheurModel {
-    @NotBlank
-    @NotNull
+public class MonitorModel {
+
     private Long id;
     private String name;
     private String afficheurReference ;
