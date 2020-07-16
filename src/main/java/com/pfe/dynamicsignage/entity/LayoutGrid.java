@@ -1,7 +1,12 @@
 package com.pfe.dynamicsignage.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pfe.dynamicsignage.model.MessageComponentModel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,27 +23,35 @@ public class LayoutGrid {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="_name")
+
     private String name;
-    @Column(name="_main_dimension")
+
     private String main_dimension;
-    @Column(name="_footer")
+
     private Boolean footer;
-    @Column(name="_aside")
-    private Boolean aside;
+
+    private String aside;
     @OneToMany
     @JsonBackReference
-    private List<Monitor> monitors = new ArrayList<>();
+    private List<Monitor> monitors ;
 
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @OneToMany
 
       /*@JoinTable(
              name = "layout_grid_component",
              joinColumns = { @JoinColumn(name = "layout_grid_id") },
              inverseJoinColumns = { @JoinColumn(name = "component_id") }
      )*/
-    private Set<Component> componentSet = new HashSet<>();
+    @JsonManagedReference
+    @NotFound(action = NotFoundAction.IGNORE)
+   /* private Set<Component> componentSet = new HashSet<>();*/
+    private  List <Component> components ;
+
+    @ManyToOne
+    @JsonManagedReference
+    @NotFound(action = NotFoundAction.IGNORE)
+    private MessageComponent messageComponent;
 
 
 

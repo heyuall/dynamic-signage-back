@@ -37,6 +37,10 @@ public class LayoutGridController {
                                      @PathVariable Long layoutGridId) {
         return layoutGridService.affectComponent( componentId, layoutGridId);
     }
+    @PostMapping("{layoutGridId}/affectMessage/{messageId}")
+    public LayoutGrid affectMessage(@PathVariable Long layoutGridId ,@PathVariable Integer messageId){
+        return  layoutGridService.affectMessage(layoutGridId,messageId);
+    }
 
 }
 

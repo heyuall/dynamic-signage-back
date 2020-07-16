@@ -1,11 +1,14 @@
 package com.pfe.dynamicsignage.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,14 +26,18 @@ public class Component {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String type; // chart - message
+    private String title;
     private String view;// histo - pie
 
-    @ManyToMany(mappedBy = "componentSet")
-    private Set<LayoutGrid> layoutGridSet=new HashSet<>();
+    @ElementCollection(targetClass=Double.class)
+    private List <Double>  data ;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<com.pfe.dynamicsignage.entity.Data> dataSet;
+    @ManyToOne(fetch = FetchType.LAZY)
+
+    @JsonBackReference
+    private LayoutGrid layoutGrid;
+
+
 
 
 }

@@ -13,14 +13,12 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComponentModel {
+public class MessageComponentModel  {
 
-    private long id;
+    private Integer id;
 
-    private String title;
-    private String view;// histo - pie
+    private List<String> data;
 
-    private List <Double>  data ;
-    private LayoutGridModel layoutGridSet ;
+    private List<LayoutGridModel> layoutGrids;
 
 }

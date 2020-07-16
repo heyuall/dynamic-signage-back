@@ -14,4 +14,6 @@ public interface LayoutGridService {
     public void deleteLayoutGridById(Long id);
 
     public LayoutGrid affectComponent(Long componentId, Long layoutGridId);
+
+    public LayoutGrid affectMessage (Long layoutGridId , Integer MessageId);
 }
