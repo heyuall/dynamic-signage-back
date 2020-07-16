@@ -53,6 +53,9 @@ public class LayoutGrid {
     @NotFound(action = NotFoundAction.IGNORE)
     private MessageComponent messageComponent;
 
-
+    @ManyToOne
+    @JsonManagedReference
+    @NotFound(action = NotFoundAction.IGNORE)
+    private NotificationComponent notificationComponent;
 
 }

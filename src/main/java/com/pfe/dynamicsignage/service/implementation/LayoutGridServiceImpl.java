@@ -3,9 +3,11 @@ package com.pfe.dynamicsignage.service.implementation;
 import com.pfe.dynamicsignage.dao.ComponentDao;
 import com.pfe.dynamicsignage.dao.LayoutGridDao;
 import com.pfe.dynamicsignage.dao.MessageComponentDao;
+import com.pfe.dynamicsignage.dao.NotificationComponentDao;
 import com.pfe.dynamicsignage.entity.Component;
 import com.pfe.dynamicsignage.entity.LayoutGrid;
 import com.pfe.dynamicsignage.entity.MessageComponent;
+import com.pfe.dynamicsignage.entity.NotificationComponent;
 import com.pfe.dynamicsignage.model.LayoutGridModel;
 import com.pfe.dynamicsignage.service.LayoutGridService;
 import org.modelmapper.ModelMapper;
@@ -26,6 +28,9 @@ public class LayoutGridServiceImpl implements LayoutGridService {
     private ComponentDao componentDao;
     @Autowired
     private MessageComponentDao messageComponentDao;
+    @Autowired
+    private NotificationComponentDao notificationComponentDao;
+
 
     public List<LayoutGrid> getAll() {
         return layoutGridDao.findAll();
@@ -65,6 +70,15 @@ public class LayoutGridServiceImpl implements LayoutGridService {
 
         layoutGrid.setMessageComponent(messageComponent);
 
+        return layoutGridDao.save(layoutGrid);
+
+    }
+
+    @Override
+    public LayoutGrid affectNotification(Long layoutGridId, Long notificationId) {
+        LayoutGrid layoutGrid = layoutGridDao.findById(layoutGridId).get();
+        NotificationComponent notificationComponent = notificationComponentDao.findById(notificationId).get();
+        layoutGrid.setNotificationComponent(notificationComponent);
         return layoutGridDao.save(layoutGrid);
     }
 }
