@@ -4,6 +4,7 @@ package com.pfe.dynamicsignage.service.implementation;
 import com.pfe.dynamicsignage.dao.NotificationComponentDao;
 import com.pfe.dynamicsignage.entity.NotificationComponent;
 import com.pfe.dynamicsignage.model.NotificationComponentModel;
+import com.pfe.dynamicsignage.service.NotificationComponentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class NotificationComponentServiceImpl {
+public class NotificationComponentServiceImpl implements NotificationComponentService {
     @Autowired
     private NotificationComponentDao notificationComponentDao;
     @Autowired
