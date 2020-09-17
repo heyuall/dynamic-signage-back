@@ -32,11 +32,11 @@ public class Component {
     @ElementCollection(targetClass=Double.class)
     private List <Double>  data ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
 
     @JsonBackReference
     private LayoutGrid layoutGrid;
-
+*/
 
 
 

@@ -42,7 +42,7 @@ public class LayoutGridController {
         return  layoutGridService.affectMessage(layoutGridId,messageId);
     }
     @PostMapping("{layoutGridId}/setComponents/{componentIds}")
-    public LayoutGrid setComponents(@PathVariable Long[] componentIds,
+    public LayoutGrid setComponents(@PathVariable List<Long> componentIds,
                                       @PathVariable Long layoutGridId) {
         return layoutGridService.setComponents( componentIds, layoutGridId);
     }

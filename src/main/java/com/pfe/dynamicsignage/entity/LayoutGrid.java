@@ -36,7 +36,7 @@ public class LayoutGrid {
     private List<Monitor> monitors ;
 
 
-    @OneToMany
+    @ManyToMany
 
       /*@JoinTable(
              name = "layout_grid_component",

@@ -19,5 +19,5 @@ public interface LayoutGridService {
 
     public LayoutGrid affectNotification (Long layoutGridId ,Long notificationId);
 
-    public LayoutGrid setComponents(Long [] componentIds,Long layoutGridId);
+    public LayoutGrid setComponents(List<Long> componentIds ,Long layoutGridId);
 }
