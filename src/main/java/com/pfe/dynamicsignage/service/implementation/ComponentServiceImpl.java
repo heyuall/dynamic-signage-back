@@ -40,8 +40,20 @@ public class ComponentServiceImpl implements ComponentService {
                         .add(Math.random() * 1000)
                         .add(Math.random() * 1000)
                 ).build();
-
         JsonObject obj2 = Json.createObjectBuilder()
+                .add("title", "Production Ligne1 par semaine")
+                .add("view", "bar")
+                .add("data", Json.createArrayBuilder()
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                        .add(Math.random() * 100 + 20)
+                ).build();
+
+     /*   JsonObject obj2 = Json.createObjectBuilder()
                 .add("title", "Production Atelier")
                 .add("view", "bar")
                 .add("data", Json.createArrayBuilder()
@@ -49,35 +61,38 @@ public class ComponentServiceImpl implements ComponentService {
                         .add(Math.random() * 1000)
                         .add(Math.random() * 1000)
                 ).build();
+       */
         JsonObject obj3 = Json.createObjectBuilder()
                 .add("title", "Production Ligne 1")
-                .add("view", "dragger")
+                .add("view", "gauge")
                 .add("data", Json.createArrayBuilder()
                         .add(Math.random() * 100 + 1)
 
                 ).build();
         JsonObject obj4 = Json.createObjectBuilder()
                 .add("title", "Production Ligne 2")
-                .add("view", "dragger")
+                .add("view", "gauge")
                 .add("data", Json.createArrayBuilder()
                         .add(Math.random() * 100 + 1)
 
                 ).build();
         JsonObject obj5 = Json.createObjectBuilder()
                 .add("title", "Production Ligne 3")
-                .add("view", "dragger")
+                .add("view", "gauge")
                 .add("data", Json.createArrayBuilder()
                         .add(Math.random() * 100 + 1)
 
                 ).build();
         JsonObject obj6 = Json.createObjectBuilder()
                 .add("title", "Temperature")
-                .add("view", "dragger")
+                .add("view", "gauge")
                 .add("data", Json.createArrayBuilder()
                         .add(Math.random() * 100 + 1)
 
                 ).build();
+        /*
         JsonObject obj7 = Json.createObjectBuilder()
+
                 .add("title", "Humidité")
                 .add("view", "dragger")
                 .add("data", Json.createArrayBuilder()
@@ -117,7 +132,7 @@ public class ComponentServiceImpl implements ComponentService {
                         .add(Math.random() * 100 + 20)
                         .add(Math.random() * 100 + 20)
                 ).build();
-
+  */
 
         datas = new ArrayList<JsonObject>();
         datas.add(obj1);
@@ -126,10 +141,10 @@ public class ComponentServiceImpl implements ComponentService {
         datas.add(obj4);
         datas.add(obj5);
         datas.add(obj6);
-        datas.add(obj7);
+       /* datas.add(obj7);
         datas.add(obj8);
         datas.add(obj9);
-        datas.add(obj10);
+        datas.add(obj10);*/
 
         return (ArrayList<JsonObject>) datas;
 
