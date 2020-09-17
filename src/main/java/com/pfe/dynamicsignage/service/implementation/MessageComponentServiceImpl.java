@@ -45,9 +45,10 @@ private MessageComponentDao messageComponentDao;
         if (this.getAll().isEmpty()){
             return this.addMessageComponent(messageComponentModel);
         }else{
-           this.findMessageComponentById(1).ifPresent(messageComponent ->
-                   messageComponentModel.setData(messageComponent.getData()));
-           return this.findMessageComponentById(1).get();
+           this.findMessageComponentById(4).ifPresent(messageComponent ->
+                   messageComponent.setData(messageComponentModel.getData()));
+           //return this.findMessageComponentById(4).get();
+           return messageComponentDao.save(this.findMessageComponentById(4).get());
         }
     }
 
