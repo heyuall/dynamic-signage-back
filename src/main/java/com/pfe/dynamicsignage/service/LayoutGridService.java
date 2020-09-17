@@ -18,4 +18,6 @@ public interface LayoutGridService {
     public LayoutGrid affectMessage (Long layoutGridId , Integer MessageId);
 
     public LayoutGrid affectNotification (Long layoutGridId ,Long notificationId);
+
+    public LayoutGrid setComponents(Long [] componentIds,Long layoutGridId);
 }

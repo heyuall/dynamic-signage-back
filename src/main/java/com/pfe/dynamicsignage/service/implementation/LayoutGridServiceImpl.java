@@ -63,6 +63,23 @@ public class LayoutGridServiceImpl implements LayoutGridService {
         return layoutGridDao.save(layoutGrid);
     }
 
+    public LayoutGrid setComponents(Long[] componentIds, Long layoutGridId) {
+
+        LayoutGrid layoutGrid = layoutGridDao.findById(layoutGridId).get();
+        List<Component>components= new ArrayList<>();
+        for (int i =0; i<componentIds.length;i++) {
+            components.add( componentDao.findById(componentIds[i]).get());
+        }
+        if (layoutGrid.getComponents().isEmpty()) {
+            layoutGrid.setComponents(components);
+        } else {
+            List<Component>componentsss= new ArrayList<>();
+            layoutGrid.setComponents(componentsss);
+            layoutGrid.setComponents(components);
+        }
+        return layoutGridDao.save(layoutGrid);
+    }
+
     @Override
     public LayoutGrid affectMessage(Long layoutGridId, Integer messageId) {
         LayoutGrid layoutGrid = layoutGridDao.findById(layoutGridId).get();
