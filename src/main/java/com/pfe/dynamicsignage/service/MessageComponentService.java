@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MessageComponentService {
-    public MessageComponent addMessageComponent(MessageComponentDto messageComponentDto);
+    MessageComponent addMessageComponent(MessageComponentDto messageComponentDto);
 
-    public List<MessageComponent> getAll();
+    List<MessageComponent> getAll();
 
-    public void deleteMessageComponentById(Integer id);
+    void deleteMessageComponentById(Integer id);
 
-    public Optional<MessageComponent> findMessageComponentById(Integer id);
+    Optional<MessageComponent> findMessageComponentById(Integer id);
 
-    public MessageComponent updateMessageComponent(MessageComponentDto messageComponentDto);
+    MessageComponent updateMessageComponent(MessageComponentDto messageComponentDto);
 
 }
 

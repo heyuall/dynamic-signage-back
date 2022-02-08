@@ -67,7 +67,7 @@ public class NotificationComponentServiceImpl implements NotificationComponentSe
                 ).build();
        
 
-        datas = new ArrayList<JsonObject>();
+        datas = new ArrayList<>();
         datas.add(obj1);
         datas.add(obj2);
         datas.add(obj3);
