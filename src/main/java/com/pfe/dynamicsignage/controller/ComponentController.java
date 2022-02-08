@@ -38,7 +38,6 @@ public class ComponentController {
     @PostMapping("/create")
     public Component createcomponents() {
       List<Component> components = this.componentService.getAll();
-       /* System.out.println("Message: "+components);*/
         ArrayList<JsonObject> jsonObjects = this.componentService.getComponentDatas();
         if (components.isEmpty()) {
 

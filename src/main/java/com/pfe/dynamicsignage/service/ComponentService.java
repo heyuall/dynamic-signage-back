@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ComponentService {
-    public Component addComponent(ComponentDto componentDto);
+    Component addComponent(ComponentDto componentDto);
 
-    public List<Component> getAll();
+    List<Component> getAll();
 
-    public void deleteComponentById(Long id);
+    void deleteComponentById(Long id);
 
-    public Optional<Component> findComponentById(Long id);
+    Optional<Component> findComponentById(Long id);
 
-    public Component createComponents(JsonObject jsonObject);
+    Component createComponents(JsonObject jsonObject);
 
-    public ArrayList<JsonObject> getComponentDatas();
+    ArrayList<JsonObject> getComponentDatas();
 
 }
