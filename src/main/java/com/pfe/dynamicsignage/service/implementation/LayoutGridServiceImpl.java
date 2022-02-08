@@ -8,7 +8,7 @@ import com.pfe.dynamicsignage.entity.Component;
 import com.pfe.dynamicsignage.entity.LayoutGrid;
 import com.pfe.dynamicsignage.entity.MessageComponent;
 import com.pfe.dynamicsignage.entity.NotificationComponent;
-import com.pfe.dynamicsignage.model.LayoutGridModel;
+import com.pfe.dynamicsignage.dto.LayoutGridDto;
 import com.pfe.dynamicsignage.service.LayoutGridService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +36,8 @@ public class LayoutGridServiceImpl implements LayoutGridService {
         return layoutGridDao.findAll();
     }
 
-    public LayoutGrid addLayoutGrid(LayoutGridModel layoutGridModel) {
-        LayoutGrid layoutGrid = modelMapper.map(layoutGridModel, LayoutGrid.class);
+    public LayoutGrid addLayoutGrid(LayoutGridDto layoutGridDto) {
+        LayoutGrid layoutGrid = modelMapper.map(layoutGridDto, LayoutGrid.class);
 
         return layoutGridDao.save(layoutGrid);
     }

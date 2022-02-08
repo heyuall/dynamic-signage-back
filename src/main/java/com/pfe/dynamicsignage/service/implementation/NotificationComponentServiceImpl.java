@@ -3,7 +3,7 @@ package com.pfe.dynamicsignage.service.implementation;
 
 import com.pfe.dynamicsignage.dao.NotificationComponentDao;
 import com.pfe.dynamicsignage.entity.NotificationComponent;
-import com.pfe.dynamicsignage.model.NotificationComponentModel;
+import com.pfe.dynamicsignage.dto.NotificationComponentDto;
 import com.pfe.dynamicsignage.service.NotificationComponentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,12 +79,12 @@ public class NotificationComponentServiceImpl implements NotificationComponentSe
     }
 
     public NotificationComponent createNotificationComponents(JsonObject jsonObject){
-        NotificationComponentModel notificationComponentModel = new NotificationComponentModel();
-        notificationComponentModel.setName(jsonObject.getString("name"));
+        NotificationComponentDto notificationComponentDto = new NotificationComponentDto();
+        notificationComponentDto.setName(jsonObject.getString("name"));
 
-        notificationComponentModel.setData((List<String>) jsonObject.get("data"));
+        notificationComponentDto.setData((List<String>) jsonObject.get("data"));
 
-        NotificationComponent notificationComponent = modelMapper.map(notificationComponentModel, NotificationComponent.class);
+        NotificationComponent notificationComponent = modelMapper.map(notificationComponentDto, NotificationComponent.class);
         return notificationComponentDao.save(notificationComponent);
     }
 
@@ -93,8 +93,8 @@ public class NotificationComponentServiceImpl implements NotificationComponentSe
         return notificationComponentDao.findAll();
     }
 
-    public NotificationComponent addNotificationComponent(NotificationComponentModel notificationComponentModel) {
-        NotificationComponent notificationComponent = modelMapper.map(notificationComponentModel, NotificationComponent.class);
+    public NotificationComponent addNotificationComponent(NotificationComponentDto notificationComponentDto) {
+        NotificationComponent notificationComponent = modelMapper.map(notificationComponentDto, NotificationComponent.class);
 
         return notificationComponentDao.save(notificationComponent);
     }

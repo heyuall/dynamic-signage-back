@@ -1,7 +1,7 @@
 package com.pfe.dynamicsignage.controller;
 
 import com.pfe.dynamicsignage.entity.NotificationComponent;
-import com.pfe.dynamicsignage.model.NotificationComponentModel;
+import com.pfe.dynamicsignage.dto.NotificationComponentDto;
 import com.pfe.dynamicsignage.service.NotificationComponentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ public class NotificationComponentController {
     }
 
     @PostMapping("/add")
-    public NotificationComponent addNotificationComponent ( @RequestBody final NotificationComponentModel notificationComponentModel){
-        return notificationComponentService.addNotificationComponent(notificationComponentModel);
+    public NotificationComponent addNotificationComponent ( @RequestBody final NotificationComponentDto notificationComponentDto){
+        return notificationComponentService.addNotificationComponent(notificationComponentDto);
     }
 
     @DeleteMapping("/remove/{id}")

@@ -1,7 +1,7 @@
 package com.pfe.dynamicsignage.controller;
 
 import com.pfe.dynamicsignage.entity.Component;
-import com.pfe.dynamicsignage.model.ComponentModel;
+import com.pfe.dynamicsignage.dto.ComponentDto;
 import com.pfe.dynamicsignage.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +25,8 @@ public class ComponentController {
     }
 
     @PostMapping("/add")
-    public Component addComponent(@RequestBody final ComponentModel componentModel) {
-        return componentService.addComponent(componentModel);
+    public Component addComponent(@RequestBody final ComponentDto componentDto) {
+        return componentService.addComponent(componentDto);
     }
 
     @DeleteMapping("/remove/{id}")

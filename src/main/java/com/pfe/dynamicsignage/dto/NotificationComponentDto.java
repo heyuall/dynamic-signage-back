@@ -1,4 +1,4 @@
-package com.pfe.dynamicsignage.model;
+package com.pfe.dynamicsignage.dto;
 
 import com.pfe.dynamicsignage.entity.LayoutGrid;
 import lombok.Data;
@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Data
-public class NotificationComponentModel {
+public class NotificationComponentDto {
     private Long id;
 
 

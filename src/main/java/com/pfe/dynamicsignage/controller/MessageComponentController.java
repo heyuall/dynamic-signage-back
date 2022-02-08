@@ -2,7 +2,7 @@ package com.pfe.dynamicsignage.controller;
 
 
 import com.pfe.dynamicsignage.entity.MessageComponent;
-import com.pfe.dynamicsignage.model.MessageComponentModel;
+import com.pfe.dynamicsignage.dto.MessageComponentDto;
 import com.pfe.dynamicsignage.service.MessageComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +21,8 @@ public class MessageComponentController {
     }
 
     @PostMapping("/add")
-    public MessageComponent addMessageComponent(@RequestBody final MessageComponentModel messageComponentModel) {
-        return messageComponentService.addMessageComponent(messageComponentModel);
+    public MessageComponent addMessageComponent(@RequestBody final MessageComponentDto messageComponentDto) {
+        return messageComponentService.addMessageComponent(messageComponentDto);
     }
 
 
@@ -33,8 +33,8 @@ public class MessageComponentController {
     }
 
     @PostMapping("/update")
-    public MessageComponent updateMessageComponent(@RequestBody final MessageComponentModel messageComponentModel){
-        return messageComponentService.updateMessageComponent(messageComponentModel);
+    public MessageComponent updateMessageComponent(@RequestBody final MessageComponentDto messageComponentDto){
+        return messageComponentService.updateMessageComponent(messageComponentDto);
     }
 
 }

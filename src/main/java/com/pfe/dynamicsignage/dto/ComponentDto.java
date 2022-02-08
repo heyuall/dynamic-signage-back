@@ -1,19 +1,15 @@
-package com.pfe.dynamicsignage.model;
+package com.pfe.dynamicsignage.dto;
 
-import com.pfe.dynamicsignage.entity.LayoutGrid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComponentModel {
+public class ComponentDto {
 
     private long id;
 
@@ -21,6 +17,6 @@ public class ComponentModel {
     private String view;// histo - pie
 
     private List <Double>  data ;
-    private LayoutGridModel layoutGridSet ;
+    private LayoutGridDto layoutGridSet ;
 
 }

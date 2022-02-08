@@ -2,14 +2,13 @@ package com.pfe.dynamicsignage.service.implementation;
 
 import com.pfe.dynamicsignage.dao.ComponentDao;
 import com.pfe.dynamicsignage.entity.Component;
-import com.pfe.dynamicsignage.model.ComponentModel;
+import com.pfe.dynamicsignage.dto.ComponentDto;
 import com.pfe.dynamicsignage.service.ComponentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.json.Json;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
@@ -151,12 +150,12 @@ public class ComponentServiceImpl implements ComponentService {
     }
   @Override
     public Component createComponents(JsonObject jsonObject){
-        ComponentModel componentModel = new ComponentModel();
-        componentModel.setTitle(jsonObject.getString("title"));
-        componentModel.setView(jsonObject.getString("view"));
-        componentModel.setData((List<Double>) jsonObject.get("data"));
+        ComponentDto componentDto = new ComponentDto();
+        componentDto.setTitle(jsonObject.getString("title"));
+        componentDto.setView(jsonObject.getString("view"));
+        componentDto.setData((List<Double>) jsonObject.get("data"));
 
-        Component component = modelMapper.map(componentModel, Component.class);
+        Component component = modelMapper.map(componentDto, Component.class);
         return componentDao.save(component);
     }
 
@@ -165,8 +164,8 @@ public class ComponentServiceImpl implements ComponentService {
         return componentDao.findAll();
     }
 
-    public Component addComponent(ComponentModel componentModel) {
-        Component component = modelMapper.map(componentModel, Component.class);
+    public Component addComponent(ComponentDto componentDto) {
+        Component component = modelMapper.map(componentDto, Component.class);
 
         return componentDao.save(component);
     }
