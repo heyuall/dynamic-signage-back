@@ -4,6 +4,8 @@ import com.pfe.dynamicsignage.entity.LayoutGrid;
 import com.pfe.dynamicsignage.dto.LayoutGridDto;
 import com.pfe.dynamicsignage.service.LayoutGridService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,6 +47,12 @@ public class LayoutGridController {
     public LayoutGrid setComponents(@PathVariable List<Long> componentIds,
                                       @PathVariable Long layoutGridId) {
         return layoutGridService.setComponents( componentIds, layoutGridId);
+    }
+
+    @GetMapping("/findAllAudited")
+    public ResponseEntity<List<LayoutGrid>> findAllAudited(){
+        List<LayoutGrid> results = layoutGridService.getAllAudited();
+        return new ResponseEntity<>(results, HttpStatus.OK);
     }
 
 }

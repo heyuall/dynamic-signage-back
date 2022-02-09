@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.RelationTargetAuditMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 /*@Table(name = "layout_grid")*/
+@Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
 public class LayoutGrid {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
