@@ -10,10 +10,16 @@ import com.pfe.dynamicsignage.entity.MessageComponent;
 import com.pfe.dynamicsignage.entity.NotificationComponent;
 import com.pfe.dynamicsignage.dto.LayoutGridDto;
 import com.pfe.dynamicsignage.service.LayoutGridService;
+import org.hibernate.envers.AuditReader;
+import org.hibernate.envers.AuditReaderFactory;
+import org.hibernate.envers.query.AuditEntity;
+import org.hibernate.envers.query.AuditQuery;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +36,8 @@ public class LayoutGridServiceImpl implements LayoutGridService {
     private MessageComponentDao messageComponentDao;
     @Autowired
     private NotificationComponentDao notificationComponentDao;
+    @PersistenceContext
+    EntityManager entityManager;
 
 
     public List<LayoutGrid> getAll() {
@@ -96,6 +104,15 @@ public class LayoutGridServiceImpl implements LayoutGridService {
         NotificationComponent notificationComponent = notificationComponentDao.findById(notificationId).get();
         layoutGrid.setNotificationComponent(notificationComponent);
         return layoutGridDao.save(layoutGrid);
+    }
+
+    @Override
+    public List<LayoutGrid> getAllAudited(){
+        AuditReader reader = AuditReaderFactory.get(entityManager);
+        AuditQuery query = reader.createQuery()
+                .forRevisionsOfEntity(LayoutGrid.class, true, true);
+        query.addOrder(AuditEntity.revisionNumber().desc());
+        return query.getResultList();
     }
 }
 

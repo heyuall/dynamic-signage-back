@@ -19,4 +19,6 @@ public interface LayoutGridService {
     LayoutGrid affectNotification(Long layoutGridId, Long notificationId);
 
     LayoutGrid setComponents(List<Long> componentIds, Long layoutGridId);
+
+    List<LayoutGrid> getAllAudited();
 }
