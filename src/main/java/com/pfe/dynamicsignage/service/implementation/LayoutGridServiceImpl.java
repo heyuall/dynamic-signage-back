@@ -4,6 +4,7 @@ import com.pfe.dynamicsignage.dao.ComponentDao;
 import com.pfe.dynamicsignage.dao.LayoutGridDao;
 import com.pfe.dynamicsignage.dao.MessageComponentDao;
 import com.pfe.dynamicsignage.dao.NotificationComponentDao;
+import com.pfe.dynamicsignage.dto.shared.PageDto;
 import com.pfe.dynamicsignage.entity.Component;
 import com.pfe.dynamicsignage.entity.LayoutGrid;
 import com.pfe.dynamicsignage.entity.MessageComponent;
@@ -16,6 +17,8 @@ import org.hibernate.envers.query.AuditEntity;
 import org.hibernate.envers.query.AuditQuery;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -113,6 +116,16 @@ public class LayoutGridServiceImpl implements LayoutGridService {
                 .forRevisionsOfEntity(LayoutGrid.class, true, true);
         query.addOrder(AuditEntity.revisionNumber().desc());
         return query.getResultList();
+    }
+
+    public PageDto<LayoutGridDto> getAllAuditedPaginated(Pageable pageable){
+        pageable.first();
+        int pageSize = 0;
+        AuditReader reader = AuditReaderFactory.get(entityManager);
+        AuditQuery query = reader.createQuery()
+                .forRevisionsOfEntity(LayoutGrid.class,true,true)
+                .setMaxResults(pageSize);
+        return new PageDto(pageSize, query.getResultList());
     }
 }
 
