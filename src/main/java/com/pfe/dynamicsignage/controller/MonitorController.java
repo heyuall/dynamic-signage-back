@@ -1,7 +1,7 @@
 package com.pfe.dynamicsignage.controller;
 
 import com.pfe.dynamicsignage.entity.Monitor;
-import com.pfe.dynamicsignage.model.MonitorModel;
+import com.pfe.dynamicsignage.dto.MonitorDto;
 import com.pfe.dynamicsignage.service.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +22,8 @@ public class MonitorController {
     }
 
     @PostMapping("/add")
-    public Monitor addAfficheur(@RequestBody final MonitorModel monitorModel) {
-        return monitorService.addAfficheur(monitorModel);
+    public Monitor addAfficheur(@RequestBody final MonitorDto monitorDto) {
+        return monitorService.addAfficheur(monitorDto);
     }
 
     @PostMapping("/{afficheurId}/affectLayoutGrid/{layoutGridId}")

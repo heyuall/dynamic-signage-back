@@ -1,11 +1,9 @@
 package com.pfe.dynamicsignage.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.pfe.dynamicsignage.model.LayoutGridModel;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

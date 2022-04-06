@@ -1,7 +1,7 @@
 package com.pfe.dynamicsignage.controller;
 
 import com.pfe.dynamicsignage.entity.LayoutGrid;
-import com.pfe.dynamicsignage.model.LayoutGridModel;
+import com.pfe.dynamicsignage.dto.LayoutGridDto;
 import com.pfe.dynamicsignage.service.LayoutGridService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +22,8 @@ public class LayoutGridController {
     }
 
     @PostMapping("/add")
-    public LayoutGrid addLayoutGrid ( @RequestBody final LayoutGridModel layoutGridModel){
-        return layoutGridService.addLayoutGrid(layoutGridModel);
+    public LayoutGrid addLayoutGrid ( @RequestBody final LayoutGridDto layoutGridDto){
+        return layoutGridService.addLayoutGrid(layoutGridDto);
     }
 
     @DeleteMapping("/remove/{id}")

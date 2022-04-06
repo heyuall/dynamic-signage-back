@@ -4,7 +4,7 @@ import com.pfe.dynamicsignage.dao.MonitorDao;
 import com.pfe.dynamicsignage.dao.LayoutGridDao;
 import com.pfe.dynamicsignage.entity.Monitor;
 import com.pfe.dynamicsignage.entity.LayoutGrid;
-import com.pfe.dynamicsignage.model.MonitorModel;
+import com.pfe.dynamicsignage.dto.MonitorDto;
 import com.pfe.dynamicsignage.service.MonitorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ public class MonitorServiceImpl implements MonitorService {
         return monitorDao.findAll();
     }
 
-    public Monitor addAfficheur(MonitorModel monitorModel) {
-        Monitor monitor = modelMapper.map(monitorModel, Monitor.class);
+    public Monitor addAfficheur(MonitorDto monitorDto) {
+        Monitor monitor = modelMapper.map(monitorDto, Monitor.class);
 
         return monitorDao.save(monitor);
     }

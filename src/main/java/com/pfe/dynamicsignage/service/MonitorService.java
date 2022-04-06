@@ -1,13 +1,13 @@
 package com.pfe.dynamicsignage.service;
 
 import com.pfe.dynamicsignage.entity.Monitor;
-import com.pfe.dynamicsignage.model.MonitorModel;
+import com.pfe.dynamicsignage.dto.MonitorDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface MonitorService {
-    public Monitor addAfficheur(MonitorModel monitorModel);
+    public Monitor addAfficheur(MonitorDto monitorDto);
 
     public List<Monitor> getAll();
 

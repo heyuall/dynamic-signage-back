@@ -1,7 +1,7 @@
 package com.pfe.dynamicsignage.service;
 
 import com.pfe.dynamicsignage.entity.NotificationComponent;
-import com.pfe.dynamicsignage.model.NotificationComponentModel;
+import com.pfe.dynamicsignage.dto.NotificationComponentDto;
 
 import javax.json.JsonObject;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 
 public interface NotificationComponentService {
-    public NotificationComponent addNotificationComponent(NotificationComponentModel notificationNotificationComponentModel);
+    public NotificationComponent addNotificationComponent(NotificationComponentDto notificationNotificationComponentDto);
 
     public List<NotificationComponent> getAll();
 

@@ -1,13 +1,12 @@
 package com.pfe.dynamicsignage.service;
 
 import com.pfe.dynamicsignage.entity.LayoutGrid;
-import com.pfe.dynamicsignage.model.ComponentModel;
-import com.pfe.dynamicsignage.model.LayoutGridModel;
+import com.pfe.dynamicsignage.dto.LayoutGridDto;
 
 import java.util.List;
 
 public interface LayoutGridService {
-    public LayoutGrid addLayoutGrid(LayoutGridModel layoutGridModel);
+    public LayoutGrid addLayoutGrid(LayoutGridDto layoutGridDto);
 
     public List<LayoutGrid> getAll();
 

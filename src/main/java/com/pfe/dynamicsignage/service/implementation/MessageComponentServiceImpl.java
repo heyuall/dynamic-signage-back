@@ -2,7 +2,7 @@ package com.pfe.dynamicsignage.service.implementation;
 
 import com.pfe.dynamicsignage.dao.MessageComponentDao;
 import com.pfe.dynamicsignage.entity.MessageComponent;
-import com.pfe.dynamicsignage.model.MessageComponentModel;
+import com.pfe.dynamicsignage.dto.MessageComponentDto;
 import com.pfe.dynamicsignage.service.MessageComponentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ private MessageComponentDao messageComponentDao;
     private ModelMapper modelMapper;
 
     @Override
-    public MessageComponent addMessageComponent(MessageComponentModel messageComponentModel) {
-       MessageComponent messageComponent = modelMapper.map(messageComponentModel,MessageComponent.class);
+    public MessageComponent addMessageComponent(MessageComponentDto messageComponentDto) {
+       MessageComponent messageComponent = modelMapper.map(messageComponentDto,MessageComponent.class);
        return messageComponentDao.save(messageComponent);
     }
 
@@ -41,12 +41,12 @@ private MessageComponentDao messageComponentDao;
     }
 
     @Override
-    public MessageComponent updateMessageComponent(MessageComponentModel messageComponentModel){
+    public MessageComponent updateMessageComponent(MessageComponentDto messageComponentDto){
         if (this.getAll().isEmpty()){
-            return this.addMessageComponent(messageComponentModel);
+            return this.addMessageComponent(messageComponentDto);
         }else{
            this.findMessageComponentById(1).ifPresent(messageComponent ->
-                   messageComponent.setData(messageComponentModel.getData()));
+                   messageComponent.setData(messageComponentDto.getData()));
            //return this.findMessageComponentById(4).get();
            return messageComponentDao.save(this.findMessageComponentById(1).get());
         }
